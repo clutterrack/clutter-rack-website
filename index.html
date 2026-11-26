@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clutter Rack | Take Back Your Garage</title>
-  <meta name="description" content="Premium professionally installed overhead garage storage. Design your garage, compare systems, and schedule a free inspection.">
+  <meta name="description" content="Premium professionally installed overhead garage storage. Design your garage and take back your space.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,103 +24,83 @@
   </header>
 
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <h1>TAKE BACK<br>YOUR GARAGE.</h1>
-        <p>Overhead storage that lifts. Professional installation included. The space you actually need.</p>
-        <a href="#design" class="btn">Design My Garage</a>
-        <a href="#quote" class="btn btn-outline" style="margin-left:0.75rem;">Get a Free Quote</a>
+    <div class="hero-content">
+      <h1>TAKE BACK<br>YOUR GARAGE.</h1>
+      <p>Overhead storage that lifts. Professional installation included.</p>
+      <a href="#design" class="btn">Design My Garage</a>
+      <a href="#quote" class="btn btn-secondary" style="margin-left:0.75rem;">Get a Free Quote</a>
+    </div>
+    <div class="hero-note">Staging concept — exact shot needed: wide view of installed rack above garage door tracks with car or open floor visible</div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>See It Work</h2>
+      <p class="section-sub">Same garage, same angle. Toggle between raised and lowered to see the space you gain.</p>
+      <div class="lift-demo">
+        <img id="lift-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop" alt="Staging concept of raised storage">
+        <div class="lift-toggle">
+          <button type="button" class="active" data-state="raised">Raised</button>
+          <button type="button" data-state="lowered">Lowered</button>
+        </div>
       </div>
-      <div class="hero-image" role="img" aria-label="Staging placeholder for real Clutter Rack installation photo"></div>
+      <p style="text-align:center;color:var(--gray);font-size:0.9rem;margin-top:1rem;">Staging concept. Replace with matched pair of photos from the same camera position showing the system raised and lowered.</p>
     </div>
   </section>
 
-  <section id="products" class="section">
+  <section id="products" class="section" style="background:var(--light);">
     <div class="container">
-      <h2>Choose Your System</h2>
-      <p class="section-sub">Four professionally installed options. Load ratings and installed pricing come from the approved catalog (pending final confirmation). Photos are staging placeholders.</p>
+      <h2>Four Ways to Take Back Your Floor</h2>
+      <p class="section-sub">Professionally installed. Free inspection confirms the best fit for your garage.</p>
       <div class="products">
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Staging placeholder — real installed Electric Elevator photo needed">
-          <h3>Clutter Pro Electric Elevator</h3>
-          <p>Best for frequent access. Push-button electric lift. Professional installation included.</p>
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Staging — real Electric Elevator install photo needed">
+          <h3>Electric Elevator</h3>
+          <p>Push-button access whenever you need it. Ideal for items you use often.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop" alt="Staging placeholder — real installed Max Elevator photo needed">
-          <h3>Clutter Max Elevator</h3>
-          <p>Drill-operated platform. Good balance of capacity and cost. Professional installation included.</p>
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop" alt="Staging — real Max Elevator install photo needed">
+          <h3>Max Elevator</h3>
+          <p>Drill-operated lift. Strong capacity with simple access when you want it.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Staging placeholder — real installed Static Ceiling Rack photo needed">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Staging — real Static Ceiling Rack install photo needed">
           <h3>Static Ceiling Rack</h3>
-          <p>Fixed overhead storage for items you rarely need. Professional installation included.</p>
+          <p>Fixed overhead storage for seasonal or rarely used items.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=400&fit=crop" alt="Staging placeholder — real installed Bike Rack photo needed">
+          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=400&fit=crop" alt="Staging — real Bike Rack install photo needed">
           <h3>Bike Rack</h3>
-          <p>Secure overhead bike storage. Professional installation included.</p>
+          <p>Secure overhead storage that keeps bikes off the floor and out of the way.</p>
         </div>
       </div>
-      <p class="section-sub" style="margin-top:2rem;font-size:0.9rem;">Comparison and detailed views will pull live from Clutter Rack OS once the public catalog endpoint is connected. Load figures removed until approved.</p>
     </div>
   </section>
 
-  <section id="design" class="section" style="background:var(--light);">
+  <section id="design" class="section">
     <div class="container">
       <h2>Design My Garage</h2>
-      <p class="section-sub">A short interactive experience. Get a preliminary recommendation before we ask for contact details. Final fit, clearances, and capacity are confirmed at a free inspection.</p>
+      <p class="section-sub">Start with what you want off the floor. See a recommendation before we ask for details.</p>
       <div class="lead-form">
         <div class="design-step active" id="step-1">
-          <div class="form-group">
-            <label for="storage-goal">What do you mainly want to store?</label>
-            <select id="storage-goal" name="storage_goal">
-              <option value="">Select...</option>
-              <option>Bins and seasonal items</option>
-              <option>Bikes</option>
-              <option>Tools and equipment</option>
-              <option>Sports gear</option>
-              <option>I'm not sure</option>
-            </select>
+          <h3 style="text-align:center;margin-bottom:1rem;">What do you want to get off the floor?</h3>
+          <div class="choices">
+            <div class="choice" data-value="bins">Bins & Seasonal</div>
+            <div class="choice" data-value="bikes">Bikes</div>
+            <div class="choice" data-value="sports">Sports Gear</div>
+            <div class="choice" data-value="tools">Tools</div>
+            <div class="choice" data-value="unsure">I’m not sure</div>
           </div>
-          <div class="form-group">
-            <label for="access-freq">How often do you need access?</label>
-            <select id="access-freq" name="access_freq">
-              <option value="">Select...</option>
-              <option>Frequently (weekly)</option>
-              <option>Occasionally (monthly)</option>
-              <option>Rarely (seasonal)</option>
-              <option>I'm not sure</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="zip">ZIP code</label>
-            <input type="text" id="zip" name="zip" placeholder="e.g. 12345" maxlength="10">
-          </div>
-          <button type="button" class="btn" id="to-step-2" style="width:100%;">Continue</button>
+          <button type="button" class="btn" id="to-result" style="width:100%;" disabled>See Recommendation</button>
         </div>
-        <div class="design-step" id="step-2">
-          <div class="form-group">
-            <label>Approximate dimensions (feet) — or skip if unsure</label>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;">
-              <input type="number" id="width" name="width" placeholder="Width" aria-label="Width in feet">
-              <input type="number" id="depth" name="depth" placeholder="Depth" aria-label="Depth in feet">
-              <input type="number" id="height" name="height" placeholder="Ceiling height" aria-label="Ceiling height in feet">
-            </div>
+        <div class="design-step" id="step-result">
+          <div class="result-screen">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop" alt="Staging concept of recommended system installed">
+            <h3 id="result-title">Electric Elevator</h3>
+            <p id="result-why">Gives you push-button access so the items you use most stay easy to reach while the floor stays clear.</p>
+            <p style="font-size:0.9rem;color:var(--gray);">Concept preview — final placement, clearances, and capacity confirmed at free inspection.</p>
+            <button type="button" class="btn" id="to-contact" style="margin-top:1rem;">Request a Free Inspection</button>
           </div>
-          <div class="form-group">
-            <label for="photos">Optional photos (helps with clearances)</label>
-            <input type="file" id="photos" name="photos" accept="image/*" multiple>
-          </div>
-          <button type="button" class="btn" id="to-recommendation" style="width:100%;">See Recommendation</button>
-        </div>
-        <div class="design-step" id="step-recommendation">
-          <div class="recommendation">
-            <h3>Recommended: Clutter Pro Electric Elevator</h3>
-            <p>Best for frequent access to bins and seasonal items. Professional installation included. Final placement confirmed at inspection.</p>
-            <p><strong>Alternative:</strong> Clutter Max Elevator — similar capacity with drill operation if you prefer lower ongoing power use.</p>
-            <p style="font-size:0.9rem;color:var(--gray);">Concept visualization (when available) would appear here labeled “Concept preview.” Staging uses catalog rules only.</p>
-          </div>
-          <button type="button" class="btn" id="to-contact" style="width:100%;">Save Plan or Request Free Inspection</button>
         </div>
         <div class="design-step" id="step-contact">
           <form id="design-form" novalidate>
@@ -129,11 +109,10 @@
               <input type="text" id="design-name" name="name">
             </div>
             <div class="form-group">
-              <label for="preferred-contact">Preferred contact method</label>
+              <label for="preferred-contact">Preferred contact</label>
               <select id="preferred-contact" name="preferred_contact">
                 <option>Phone</option>
                 <option>Email</option>
-                <option>Text</option>
               </select>
             </div>
             <div class="form-group">
@@ -146,9 +125,9 @@
             </div>
             <div class="consent">
               <input type="checkbox" id="design-tcpa" name="tcpa_consent">
-              <label for="design-tcpa">Optional: I agree to receive marketing calls and texts. Consent is not required. Reply STOP to opt out. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</label>
+              <label for="design-tcpa">Optional marketing contact. Not required. Reply STOP to opt out. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</label>
             </div>
-            <button type="submit" class="btn" style="width:100%;">Request Follow-up</button>
+            <button type="submit" class="btn" style="width:100%;">Request Free Inspection</button>
             <div id="design-message" role="status" aria-live="polite"></div>
           </form>
         </div>
@@ -156,25 +135,24 @@
     </div>
   </section>
 
-  <section id="journey" class="section">
+  <section id="journey" class="section" style="background:var(--light);">
     <div class="container">
       <h2>What to Expect</h2>
-      <p class="section-sub">From design or quote to installed system.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">01</div>
-          <h3>Design or Quote</h3>
-          <p>Share what you store and your ZIP. Get a preliminary recommendation or request a quote.</p>
+          <h3>Free Inspection</h3>
+          <p>We confirm fit, clearances, and the best system for your garage.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
-          <h3>Free Inspection</h3>
-          <p>We confirm fit, clearances, and the best placement. Availability shown when connected to the system.</p>
+          <h3>Final Quote</h3>
+          <p>Approved installed pricing once we’ve seen your space.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
-          <h3>Final Quote & Install</h3>
-          <p>Approved pricing, delivery, and professional installation. One record follows you through the process.</p>
+          <h3>Delivery & Install</h3>
+          <p>Professional installation so the system is secure and ready to use.</p>
         </div>
       </div>
     </div>
@@ -183,7 +161,7 @@
   <section id="quote" class="section form-section">
     <div class="container">
       <h2>Get a Free Quote</h2>
-      <p class="section-sub">Quick path. ZIP, name, and one way to reach you. Marketing consent is optional.</p>
+      <p class="section-sub">ZIP, name, and how you prefer to be reached. Marketing consent is optional.</p>
       <form id="lead-form" class="lead-form" novalidate>
         <div class="form-group">
           <label for="quote-zip">ZIP code</label>
@@ -210,7 +188,7 @@
         </div>
         <div class="consent">
           <input type="checkbox" id="tcpa-consent" name="tcpa_consent">
-          <label for="tcpa-consent">Optional marketing calls/texts. Not required for a quote. Reply STOP to opt out. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</label>
+          <label for="tcpa-consent">Optional marketing calls/texts. Not required. Reply STOP to opt out. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</label>
         </div>
         <button type="submit" class="btn" style="width:100%;">Request Free Quote</button>
         <div id="form-message" role="status" aria-live="polite"></div>
