@@ -2,7 +2,6 @@
 // Update LEAD_WEBHOOK_URL to your actual Clutter Rack OS lead intake endpoint
 const LEAD_WEBHOOK_URL = 'https://api.clutterrackos.example/leads'; // Placeholder — replace with real webhook
 
-// Capture marketing attribution (Google Ads, Meta, etc.)
 function getAttribution() {
   const params = new URLSearchParams(window.location.search);
   return {
@@ -41,12 +40,11 @@ async function submitLead(data) {
     return { success: true };
   } catch (err) {
     console.warn('Webhook failed (expected with placeholder URL):', err);
-    // Still succeed for demo / until real endpoint is set
     return { success: true, offline: true };
   }
 }
 
-// Lead Form
+// Standard Quote Form
 const form = document.getElementById('lead-form');
 const msg = document.getElementById('form-message');
 
@@ -56,11 +54,6 @@ if (form) {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     data.tcpa_consent = formData.get('tcpa_consent') === 'on';
-
-    if (!data.tcpa_consent) {
-      // Still allow submission but flag it
-      console.log('Submitted without TCPA consent');
-    }
 
     msg.textContent = 'Submitting...';
     msg.className = '';
@@ -84,6 +77,49 @@ if (form) {
     } else {
       msg.textContent = 'Something went wrong. Please call us at (645) 246-4886.';
       msg.className = 'error';
+    }
+  });
+}
+
+// Design My Garage Form
+const designForm = document.getElementById('design-form');
+const designMsg = document.getElementById('design-message');
+
+if (designForm) {
+  designForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(designForm);
+    const data = Object.fromEntries(formData.entries());
+    data.tcpa_consent = formData.get('tcpa_consent') === 'on';
+
+    designMsg.textContent = 'Processing your design request...';
+    designMsg.className = '';
+
+    // Photos are not sent as binary in this JSON payload; in production they would be uploaded to storage and URLs attached
+    const result = await submitLead({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      dimensions: {
+        width: data.width || null,
+        depth: data.depth || null,
+        height: data.height || null
+      },
+      storage_needs: data.storage_needs || '',
+      photos_note: 'Photos uploaded (handled separately in production)',
+      tcpa_consent: data.tcpa_consent,
+      type: 'design_my_garage'
+    });
+
+    if (result.success) {
+      designMsg.textContent = result.offline
+        ? 'Thank you! Your Design My Garage request has been received. (OS webhook pending setup). Our team will follow up with recommendations.'
+        : 'Thank you! Your garage design request has been sent to Clutter Rack OS. We\'ll review and send recommendations plus an estimated installed price.';
+      designMsg.className = 'success';
+      designForm.reset();
+    } else {
+      designMsg.textContent = 'Something went wrong. Please call us at (645) 246-4886.';
+      designMsg.className = 'error';
     }
   });
 }
@@ -114,7 +150,6 @@ if (chatToggle) {
     chatInput.value = '';
     addMessage(text, 'user');
 
-    // First message creates a lead in OS
     if (!chatStarted) {
       chatStarted = true;
       await submitLead({
@@ -125,16 +160,14 @@ if (chatToggle) {
         type: 'chat_start',
         tcpa_consent: false
       });
-      addMessage('Thanks! A team member will reply shortly. For faster service, you can also submit a full quote above.', 'bot');
+      addMessage('Thanks! A team member will reply shortly. You can also use Design My Garage or the quote form above.', 'bot');
     } else {
-      // Subsequent messages can be logged or sent to OS as chat updates
       console.log('Chat message:', text);
       addMessage('Got it. Our team will follow up. You can also call (645) 246-4886.', 'bot');
     }
   });
 }
 
-// Auto-fill phone from URL if present (for ads)
 const urlPhone = new URLSearchParams(location.search).get('phone');
 if (urlPhone && document.getElementById('phone')) {
   document.getElementById('phone').value = urlPhone;
