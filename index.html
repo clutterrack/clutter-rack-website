@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clutter Rack | Take Back Your Garage</title>
-  <meta name="description" content="Premium overhead garage storage systems. Design your garage, get AI-powered recommendations, and schedule a free inspection. Professional installation included.">
+  <meta name="description" content="Premium professionally installed overhead garage storage. Design your garage, compare systems, and schedule a free inspection.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +12,9 @@
 <body>
   <header>
     <div class="nav">
-      <a href="/" class="logo">Clutter <span>Rack</span></a>
-      <nav>
+      <a href="index.html" class="logo">Clutter <span>Rack</span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav id="main-nav">
         <a href="#products">Products</a>
         <a href="#design">Design My Garage</a>
         <a href="#how-it-works">How It Works</a>
@@ -27,80 +28,88 @@
       <h1>TAKE BACK<br>YOUR GARAGE.</h1>
       <p>Overhead storage that lifts. Professional installation included. The space you actually need.</p>
       <a href="#design" class="btn">Design My Garage</a>
-      <a href="#quote" class="btn btn-outline" style="margin-left:0.75rem;">Get a Quote</a>
+      <a href="#quote" class="btn btn-outline" style="margin-left:0.75rem;">Get a Free Quote</a>
     </div>
   </section>
 
   <section id="products" class="section">
     <div class="container">
       <h2>Solutions</h2>
-      <p class="section-sub">Heavy-duty overhead systems engineered for real garages. Professional installation included.</p>
+      <p class="section-sub">Heavy-duty overhead systems engineered for real garages. Professional installation included. Specifications shown are representative pending final approved catalog data.</p>
       <div class="products">
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Clutter Pro Electric Elevator">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Illustrative photo of overhead garage storage system">
           <h3>Clutter Pro Electric Elevator</h3>
-          <p>4’x8’ · 694 lb capacity<br>Push-button electric lift.</p>
+          <p>4’x8’ · Representative 694 lb capacity<br>Push-button electric lift.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop" alt="Clutter Max Elevator">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop" alt="Illustrative photo of garage elevator platform">
           <h3>Clutter Max Elevator</h3>
-          <p>4’x8’ · 694 lb capacity<br>Heavy-duty platform.</p>
+          <p>4’x8’ · Representative 694 lb capacity<br>Drill-operated platform elevator.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Clutter Ceiling Racks">
-          <h3>Clutter Ceiling Racks</h3>
-          <p>4’x8’ · 793 lb capacity<br>Fixed overhead storage.</p>
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Illustrative photo of ceiling storage racks">
+          <h3>Static Ceiling Rack</h3>
+          <p>4’x8’ · Representative 793 lb capacity<br>Fixed overhead storage.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=400&fit=crop" alt="Clutter Bike Rack">
-          <h3>Clutter Bike Rack</h3>
-          <p>8’ · 330 lb capacity<br>Secure overhead bike storage.</p>
+          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=400&fit=crop" alt="Illustrative photo of bike storage rack">
+          <h3>Bike Rack</h3>
+          <p>8’ · Representative 330 lb capacity<br>Secure overhead bike storage.</p>
         </div>
       </div>
-      <p class="section-sub" style="margin-top:2rem;font-size:0.9rem;">Product details and pricing will be served from Clutter Rack OS. Specifications shown are representative.</p>
     </div>
   </section>
 
   <section id="design" class="section" style="background:var(--light);">
     <div class="container">
       <h2>Design My Garage</h2>
-      <p class="section-sub">Upload photos of your garage, share dimensions and what you need to store. Get AI-powered product recommendations, conceptual visualizations, and an estimated installed price. Then schedule a free inspection. Everything flows into your lead in Clutter Rack OS. Final design and load capacity confirmed by our team.</p>
-      <form id="design-form" class="lead-form" enctype="multipart/form-data">
+      <p class="section-sub">Tell us what you store and roughly how your garage is set up. Get a preliminary recommendation. Photos are optional. Final placement, fit, and capacity are confirmed at a free inspection.</p>
+      <form id="design-form" class="lead-form" enctype="multipart/form-data" novalidate>
         <div class="form-group">
-          <label>Garage Photos</label>
-          <input type="file" name="photos" accept="image/*" multiple>
-          <small style="color:var(--gray);">Upload 1–5 photos of your current garage (optional but recommended).</small>
+          <label for="photos">Garage Photos (optional)</label>
+          <input type="file" id="photos" name="photos" accept="image/*" multiple aria-describedby="photos-help">
+          <small id="photos-help" style="color:var(--gray);">Upload 1–5 photos to help us assess clearances and layout. You can skip this and continue.</small>
         </div>
         <div class="form-group">
-          <label>Approximate Garage Dimensions (ft)</label>
+          <label>Approximate Garage Dimensions (feet) — or leave blank if unsure</label>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;">
-            <input type="number" name="width" placeholder="Width" min="8" max="40">
-            <input type="number" name="depth" placeholder="Depth" min="10" max="50">
-            <input type="number" name="height" placeholder="Ceiling height" min="7" max="20">
+            <div>
+              <label for="width" class="sr-only">Width in feet</label>
+              <input type="number" id="width" name="width" placeholder="Width" min="8" max="40" aria-label="Width in feet">
+            </div>
+            <div>
+              <label for="depth" class="sr-only">Depth in feet</label>
+              <input type="number" id="depth" name="depth" placeholder="Depth" min="10" max="50" aria-label="Depth in feet">
+            </div>
+            <div>
+              <label for="height" class="sr-only">Ceiling height in feet</label>
+              <input type="number" id="height" name="height" placeholder="Ceiling height" min="7" max="20" aria-label="Ceiling height in feet">
+            </div>
           </div>
         </div>
         <div class="form-group">
           <label for="storage-needs">What do you need to store?</label>
-          <textarea name="storage_needs" placeholder="Bins, bikes, seasonal gear, tools, sports equipment, etc."></textarea>
+          <textarea id="storage-needs" name="storage_needs" placeholder="Bins, bikes, seasonal gear, tools, sports equipment, etc. Or ‘I’m not sure.’"></textarea>
         </div>
         <div class="form-group">
-          <label for="design-name">Full Name *</label>
-          <input type="text" name="name" required>
+          <label for="design-name">Full Name</label>
+          <input type="text" id="design-name" name="name">
         </div>
         <div class="form-group">
-          <label for="design-email">Email *</label>
-          <input type="email" name="email" required>
+          <label for="design-email">Email</label>
+          <input type="email" id="design-email" name="email">
         </div>
         <div class="form-group">
-          <label for="design-phone">Phone *</label>
-          <input type="tel" name="phone" required>
+          <label for="design-phone">Phone</label>
+          <input type="tel" id="design-phone" name="phone">
         </div>
         <div class="consent">
-          <input type="checkbox" id="design-tcpa" name="tcpa_consent" required>
-          <label for="design-tcpa">By checking this box, I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including calls and texts made using an automatic telephone dialing system or an artificial or prerecorded voice. Consent is not a condition of purchasing any goods or services. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms</a>.</label>
+          <input type="checkbox" id="design-tcpa" name="tcpa_consent">
+          <label for="design-tcpa">I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including using an automatic telephone dialing system or artificial/prerecorded voice. Consent is not required to get a design or quote. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.</label>
         </div>
-        <button type="submit" class="btn" style="width:100%;">Get My Design & Estimate</button>
-        <div id="design-message"></div>
+        <button type="submit" class="btn" style="width:100%;">See Preliminary Recommendation</button>
+        <div id="design-message" role="status" aria-live="polite"></div>
       </form>
     </div>
   </section>
@@ -118,7 +127,7 @@
         <div class="step">
           <div class="step-num">02</div>
           <h3>Lift & Store</h3>
-          <p>Raise your Clutter Rack with the push of a button.</p>
+          <p>Raise your Clutter Rack with the push of a button or drill.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
@@ -140,11 +149,11 @@
         </div>
         <div class="step">
           <h3>Built to Last</h3>
-          <p>Heavy-duty construction with a 1-year warranty.</p>
+          <p>Heavy-duty construction with a 1-year warranty (details confirmed at inspection).</p>
         </div>
         <div class="step">
           <h3>Effortless Operation</h3>
-          <p>Smooth electric or manual lift when you need access.</p>
+          <p>Smooth electric or drill-operated lift when you need access.</p>
         </div>
         <div class="step">
           <h3>Maximize Space</h3>
@@ -157,22 +166,22 @@
   <section id="quote" class="section form-section">
     <div class="container">
       <h2>Get a Free Quote</h2>
-      <p class="section-sub">Prefer a quick quote? Tell us about your garage. We’ll create a lead in Clutter Rack OS instantly.</p>
-      <form id="lead-form" class="lead-form">
+      <p class="section-sub">Tell us a little about your garage. We’ll follow up with options and next steps.</p>
+      <form id="lead-form" class="lead-form" novalidate>
         <div class="form-group">
-          <label for="name">Full Name *</label>
-          <input type="text" id="name" name="name" required>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name">
         </div>
         <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
         </div>
         <div class="form-group">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" name="phone" required>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone">
         </div>
         <div class="form-group">
-          <label for="garage">Garage Size</label>
+          <label for="garage">Garage Size (optional)</label>
           <select id="garage" name="garage_type">
             <option value="">Select...</option>
             <option>1-car garage</option>
@@ -182,16 +191,16 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="message">What are you looking to store?</label>
+          <label for="message">What are you looking to store? (optional)</label>
           <textarea id="message" name="message"></textarea>
         </div>
         <div class="consent">
-          <input type="checkbox" id="tcpa-consent" name="tcpa_consent" required>
-          <label for="tcpa-consent">By checking this box, I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including calls and texts made using an automatic telephone dialing system or an artificial or prerecorded voice. Consent is not a condition of purchasing any goods or services. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms</a>.</label>
+          <input type="checkbox" id="tcpa-consent" name="tcpa_consent">
+          <label for="tcpa-consent">I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including using an automatic telephone dialing system or artificial/prerecorded voice. Consent is not required to receive a quote. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.</label>
         </div>
-        <p class="form-note">Consent is not required to receive a quote.</p>
+        <p class="form-note">You can request a quote without checking the promotional consent box.</p>
         <button type="submit" class="btn" style="width:100%;">Get My Free Quote</button>
-        <div id="form-message"></div>
+        <div id="form-message" role="status" aria-live="polite"></div>
       </form>
     </div>
   </section>
@@ -217,17 +226,17 @@
   </footer>
 
   <div class="chat-widget">
-    <button class="chat-btn" id="chat-toggle">💬</button>
-    <div class="chat-window" id="chat-window">
+    <button class="chat-btn" id="chat-toggle" aria-label="Open chat" aria-expanded="false">💬</button>
+    <div class="chat-window" id="chat-window" role="dialog" aria-label="Chat with Clutter Rack">
       <div class="chat-header">
         Chat with Clutter Rack
-        <span id="chat-close" style="cursor:pointer;">✕</span>
+        <button id="chat-close" aria-label="Close chat" style="background:none;border:none;color:inherit;font-size:1.2rem;cursor:pointer;">✕</button>
       </div>
-      <div class="chat-messages" id="chat-messages">
+      <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
         <p><strong>Clutter Rack:</strong> Hi! How can we help you take back your garage today?</p>
       </div>
       <div class="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Type your message...">
+        <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Chat message">
       </div>
     </div>
   </div>
