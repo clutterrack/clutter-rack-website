@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clutter Rack | Take Back Your Garage</title>
-  <meta name="description" content="Clutter Rack garage storage lifts and ceiling racks. Professional installation. Maximize your space. Get a free quote today.">
+  <meta name="description" content="Premium overhead garage storage systems. Design your garage, get AI-powered recommendations, and schedule a free inspection. Professional installation included.">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -13,10 +15,9 @@
       <a href="/" class="logo">Clutter <span>Rack</span></a>
       <nav>
         <a href="#products">Products</a>
+        <a href="#design">Design My Garage</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#quote">Get a Quote</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
       </nav>
     </div>
   </header>
@@ -24,84 +25,130 @@
   <section class="hero">
     <div class="container">
       <h1>TAKE BACK<br>YOUR GARAGE.</h1>
-      <p>Clutter Rack garage lifts raise your storage off the floor and out of the way – creating the space you actually need.</p>
-      <a href="#quote" class="btn">GET A QUOTE NOW</a>
+      <p>Overhead storage that lifts. Professional installation included. The space you actually need.</p>
+      <a href="#design" class="btn">Design My Garage</a>
+      <a href="#quote" class="btn btn-outline" style="margin-left:0.75rem;">Get a Quote</a>
     </div>
   </section>
 
   <section id="products" class="section">
     <div class="container">
-      <h2>BEST SELLERS</h2>
-      <p class="section-sub">Garage storage solutions designed to maximize your space.</p>
+      <h2>Solutions</h2>
+      <p class="section-sub">Heavy-duty overhead systems engineered for real garages. Professional installation included.</p>
       <div class="products">
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Clutter Pro Electric Elevator">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Clutter Pro Electric Elevator">
           <h3>Clutter Pro Electric Elevator</h3>
-          <p>4’x8′ · 694 lb capacity<br>Electric lift for effortless storage.</p>
+          <p>4’x8’ · 694 lb capacity<br>Push-button electric lift.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=250&fit=crop" alt="Clutter Max Elevator">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop" alt="Clutter Max Elevator">
           <h3>Clutter Max Elevator</h3>
-          <p>4’x8′ · 694 lb capacity<br>Heavy-duty platform elevator.</p>
+          <p>4’x8’ · 694 lb capacity<br>Heavy-duty platform.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=250&fit=crop" alt="Clutter Ceiling Racks">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Clutter Ceiling Racks">
           <h3>Clutter Ceiling Racks</h3>
-          <p>4’x8′ · 793 lb capacity<br>Fixed overhead storage.</p>
+          <p>4’x8’ · 793 lb capacity<br>Fixed overhead storage.</p>
         </div>
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=250&fit=crop" alt="Clutter Bike Rack">
+          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=400&fit=crop" alt="Clutter Bike Rack">
           <h3>Clutter Bike Rack</h3>
-          <p>8′ · 330 lb capacity<br>Secure overhead bike storage.</p>
+          <p>8’ · 330 lb capacity<br>Secure overhead bike storage.</p>
         </div>
       </div>
+      <p class="section-sub" style="margin-top:2rem;font-size:0.9rem;">Product details and pricing will be served from Clutter Rack OS. Specifications shown are representative.</p>
     </div>
   </section>
 
-  <section id="how-it-works" class="section" style="background: var(--light);">
+  <section id="design" class="section" style="background:var(--light);">
     <div class="container">
-      <h2>HOW IT WORKS</h2>
-      <p class="section-sub">STORAGE THAT LIFTS SO YOU DON’T HAVE TO</p>
+      <h2>Design My Garage</h2>
+      <p class="section-sub">Upload photos of your garage, share dimensions and what you need to store. Get AI-powered product recommendations, conceptual visualizations, and an estimated installed price. Then schedule a free inspection. Everything flows into your lead in Clutter Rack OS. Final design and load capacity confirmed by our team.</p>
+      <form id="design-form" class="lead-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>Garage Photos</label>
+          <input type="file" name="photos" accept="image/*" multiple>
+          <small style="color:var(--gray);">Upload 1–5 photos of your current garage (optional but recommended).</small>
+        </div>
+        <div class="form-group">
+          <label>Approximate Garage Dimensions (ft)</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;">
+            <input type="number" name="width" placeholder="Width" min="8" max="40">
+            <input type="number" name="depth" placeholder="Depth" min="10" max="50">
+            <input type="number" name="height" placeholder="Ceiling height" min="7" max="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="storage-needs">What do you need to store?</label>
+          <textarea name="storage_needs" placeholder="Bins, bikes, seasonal gear, tools, sports equipment, etc."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="design-name">Full Name *</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="design-email">Email *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="design-phone">Phone *</label>
+          <input type="tel" name="phone" required>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="design-tcpa" name="tcpa_consent" required>
+          <label for="design-tcpa">By checking this box, I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including calls and texts made using an automatic telephone dialing system or an artificial or prerecorded voice. Consent is not a condition of purchasing any goods or services. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms</a>.</label>
+        </div>
+        <button type="submit" class="btn" style="width:100%;">Get My Design & Estimate</button>
+        <div id="design-message"></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p class="section-sub">Storage that lifts so you don’t have to.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">01</div>
-          <h3>LOAD IT UP</h3>
-          <p>Place your bins, gear, and other items onto the storage platform.</p>
+          <h3>Load It Up</h3>
+          <p>Place bins, gear, and seasonal items onto the platform.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
-          <h3>LIFT & STORE</h3>
+          <h3>Lift & Store</h3>
           <p>Raise your Clutter Rack with the push of a button.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
-          <h3>ENJOY THE SPACE</h3>
-          <p>Instantly reclaim your garage floor for what matters most.</p>
+          <h3>Enjoy the Space</h3>
+          <p>Instantly reclaim your garage floor.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="background:var(--light);">
     <div class="container">
-      <h2>WHY CLUTTER RACK?</h2>
-      <p class="section-sub">MORE SPACE. LESS CLUTTER. BUILT TO LAST.</p>
+      <h2>Why Clutter Rack</h2>
+      <p class="section-sub">More space. Less clutter. Built to last. Professionally installed.</p>
       <div class="steps">
         <div class="step">
-          <h3>PROFESSIONAL INSTALLATION</h3>
-          <p>Expert installation ensures your system is secure, properly fitted, and ready to use. We handle the setup.</p>
+          <h3>Professional Installation</h3>
+          <p>Our team mounts and positions every system so it’s secure and ready to use.</p>
         </div>
         <div class="step">
-          <h3>BUILT TO LAST</h3>
-          <p>Heavy-duty construction designed for strength, stability, and years of reliable use. 1-year warranty.</p>
+          <h3>Built to Last</h3>
+          <p>Heavy-duty construction with a 1-year warranty.</p>
         </div>
         <div class="step">
-          <h3>EFFORTLESS OPERATION</h3>
-          <p>Raise and lower your storage with smooth, simple operation.</p>
+          <h3>Effortless Operation</h3>
+          <p>Smooth electric or manual lift when you need access.</p>
         </div>
         <div class="step">
-          <h3>MAXIMIZE SPACE</h3>
-          <p>Turn unused overhead space into valuable storage and reclaim your garage floor.</p>
+          <h3>Maximize Space</h3>
+          <p>Turn unused ceiling space into usable storage.</p>
         </div>
       </div>
     </div>
@@ -109,8 +156,8 @@
 
   <section id="quote" class="section form-section">
     <div class="container">
-      <h2>GET A FREE QUOTE</h2>
-      <p class="section-sub">Tell us about your garage and we'll recommend the perfect Clutter Rack solution. We'll create a lead in our system instantly.</p>
+      <h2>Get a Free Quote</h2>
+      <p class="section-sub">Prefer a quick quote? Tell us about your garage. We’ll create a lead in Clutter Rack OS instantly.</p>
       <form id="lead-form" class="lead-form">
         <div class="form-group">
           <label for="name">Full Name *</label>
@@ -122,10 +169,10 @@
         </div>
         <div class="form-group">
           <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+          <input type="tel" id="phone" name="phone" required>
         </div>
         <div class="form-group">
-          <label for="garage">Garage Size / Needs</label>
+          <label for="garage">Garage Size</label>
           <select id="garage" name="garage_type">
             <option value="">Select...</option>
             <option>1-car garage</option>
@@ -136,16 +183,14 @@
         </div>
         <div class="form-group">
           <label for="message">What are you looking to store?</label>
-          <textarea id="message" name="message" placeholder="Bins, bikes, seasonal items, tools, etc."></textarea>
+          <textarea id="message" name="message"></textarea>
         </div>
         <div class="consent">
           <input type="checkbox" id="tcpa-consent" name="tcpa_consent" required>
-          <label for="tcpa-consent">
-            By checking this box, I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including calls and texts made using an automatic telephone dialing system or an artificial or prerecorded voice. I understand that consent is not a condition of purchasing any goods or services. Message and data rates may apply. Message frequency varies. Reply STOP to opt out of texts at any time. See our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms</a>.
-          </label>
+          <label for="tcpa-consent">By checking this box, I agree to receive marketing calls and text messages from Clutter Rack at the phone number I provided, including calls and texts made using an automatic telephone dialing system or an artificial or prerecorded voice. Consent is not a condition of purchasing any goods or services. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms</a>.</label>
         </div>
-        <p class="form-note">Consent is not required to receive a quote. You may still submit without checking the box if you prefer not to receive marketing calls or texts.</p>
-        <button type="submit" class="btn" style="width:100%; margin-top:0.5rem;">Get My Free Quote</button>
+        <p class="form-note">Consent is not required to receive a quote.</p>
+        <button type="submit" class="btn" style="width:100%;">Get My Free Quote</button>
         <div id="form-message"></div>
       </form>
     </div>
@@ -171,7 +216,6 @@
     <div class="copyright">© 2026 ClutterRack LLC. All rights reserved.</div>
   </footer>
 
-  <!-- Chat Widget that creates leads in Clutter Rack OS -->
   <div class="chat-widget">
     <button class="chat-btn" id="chat-toggle">💬</button>
     <div class="chat-window" id="chat-window">
@@ -180,7 +224,7 @@
         <span id="chat-close" style="cursor:pointer;">✕</span>
       </div>
       <div class="chat-messages" id="chat-messages">
-        <p><strong>Clutter Rack:</strong> Hi! How can we help you take back your garage today? Ask a question or request a quote.</p>
+        <p><strong>Clutter Rack:</strong> Hi! How can we help you take back your garage today?</p>
       </div>
       <div class="chat-input-area">
         <input type="text" id="chat-input" placeholder="Type your message...">
