@@ -60,6 +60,17 @@ if (menuToggle && mainNav) {
   });
 }
 
+// Design My Garage steps
+function showStep(id) {
+  document.querySelectorAll('.design-step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+}
+
+document.getElementById('to-step-2')?.addEventListener('click', () => showStep('step-2'));
+document.getElementById('to-recommendation')?.addEventListener('click', () => showStep('step-recommendation'));
+document.getElementById('to-contact')?.addEventListener('click', () => showStep('step-contact'));
+
 // Quote form
 const form = document.getElementById('lead-form');
 const msg = document.getElementById('form-message');
@@ -77,8 +88,8 @@ if (form) {
       name: data.name || '',
       email: data.email || '',
       phone: data.phone || '',
-      garage_type: data.garage_type || '',
-      message: data.message || '',
+      zip: data.zip || '',
+      preferred_contact: data.preferred_contact || '',
       tcpa_consent: data.tcpa_consent,
       type: 'quote_request'
     });
@@ -96,7 +107,7 @@ if (form) {
   });
 }
 
-// Design My Garage
+// Design contact form
 const designForm = document.getElementById('design-form');
 const designMsg = document.getElementById('design-message');
 if (designForm) {
@@ -106,28 +117,31 @@ if (designForm) {
     const data = Object.fromEntries(formData.entries());
     data.tcpa_consent = formData.get('tcpa_consent') === 'on';
 
-    designMsg.textContent = 'Reviewing your details...';
+    designMsg.textContent = 'Sending...';
     designMsg.className = '';
 
     const result = await submitLead({
       name: data.name || '',
       email: data.email || '',
       phone: data.phone || '',
+      preferred_contact: data.preferred_contact || '',
+      storage_goal: document.getElementById('storage-goal')?.value || '',
+      access_freq: document.getElementById('access-freq')?.value || '',
+      zip: document.getElementById('zip')?.value || '',
       dimensions: {
-        width: data.width || null,
-        depth: data.depth || null,
-        height: data.height || null
+        width: document.getElementById('width')?.value || null,
+        depth: document.getElementById('depth')?.value || null,
+        height: document.getElementById('height')?.value || null
       },
-      storage_needs: data.storage_needs || '',
-      photos_note: 'Optional photos handled separately in production',
       tcpa_consent: data.tcpa_consent,
-      type: 'design_my_garage'
+      type: 'design_my_garage',
+      plan_note: 'Preliminary recommendation shown client-side from staging rules'
     });
 
     if (result.success) {
       designMsg.textContent = result.offline
-        ? 'Preliminary recommendation recorded (staging). Our team will review and follow up with options. Final fit confirmed at inspection.'
-        : 'Thank you. We have your details and will follow up with a preliminary recommendation. Final placement is confirmed at a free inspection.';
+        ? 'Plan saved for staging review. We will follow up about your free inspection. Final fit confirmed on site.'
+        : 'Thank you. Your plan has been received. We will follow up about next steps.';
       designMsg.className = 'success';
       designForm.reset();
     } else {
